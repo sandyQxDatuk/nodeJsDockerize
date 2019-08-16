@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ssh root@165.22.105.44 <<EOF
+ssh -t -t root@165.22.105.44 <<EOF
  cd ~/nodeJsDockerize
  git pull
  npm install — production
