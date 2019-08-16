@@ -1,9 +1,8 @@
 #!/bin/sh
 
-ssh -t -t root@165.22.105.44 <<'ENDSSH'
+ssh -t -t root@165.22.105.44 /bin/bash < run-command.sh
  cd ~/nodeJsDockerize
  git pull
  npm install — production
  pm2 restart all
  exit
-ENDSSH
