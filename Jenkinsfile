@@ -1,26 +1,21 @@
-#!/usr/bin/env groovy
 pipeline {
-    
-    
+    agent any
+
     stages {
-        stage("Prepare") {
+        stage('Build') {
             steps {
-                sh "echo test"
+                echo 'Building..'
             }
         }
-    }
-
-    post {
-        always {
-            sh "docker-compose down || true"
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
         }
-
-        success {
-            bitbucketStatusNotify buildState: "SUCCESSFUL"
-        }
-
-        failure {
-            bitbucketStatusNotify buildState: "FAILED"
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
         }
     }
 }
